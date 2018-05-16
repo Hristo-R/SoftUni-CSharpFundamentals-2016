@@ -14,8 +14,7 @@
                 "Intel HD Graphics 4400",
                 "128GB SSD",
                 "13.3\" (33.78 cm) – 3200 x 1800 (QHD+), IPS sensor display",
-                "Li-Ion, 4-cells, 2550 mAh",
-                "4,5",
+                new Battery("Li-Ion, 4-cells, 2550 mAh", "4,5"),                
                 2259.00M);
 
             Battery batteryLenovo = new Battery("Li-Ion, 4-cells, 2550 mAh", "4,5");

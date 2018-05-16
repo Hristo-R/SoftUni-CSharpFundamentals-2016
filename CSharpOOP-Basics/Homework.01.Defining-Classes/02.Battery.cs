@@ -11,13 +11,9 @@
         {
         }
 
-        public Battery(string batteryType)
+        public Battery(string batteryType, string batteryLife)
         {
             this.BatteryType = batteryType;
-        }
-
-        public Battery(string batteryType, string batteryLife) : this(batteryType)
-        {
             this.BatteryLife = batteryLife;
         }
 
@@ -48,21 +44,13 @@
 
             set
             {
-                if (value != null && double.Parse(value) < 0)
+                if (value != null && string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("Input data is invalid");
                 }
 
                 this.batteryLife = value;
             }
-        }
-
-        public override string ToString()
-        {
-            return string.Format(
-                "battery: {0}\nbattery life: {1} hours\n",
-                this.BatteryType, 
-                this.BatteryLife);
         }
     }
 }

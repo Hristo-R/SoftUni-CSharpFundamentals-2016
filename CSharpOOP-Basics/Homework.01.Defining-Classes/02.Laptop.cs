@@ -12,8 +12,7 @@
         private string graphicsCard;
         private string hdd;
         private string screen;
-        private string batteryType;
-        private string batteryLife;
+        private Battery battery;
         private decimal price;
 
         public Laptop(string model, decimal price)
@@ -30,8 +29,7 @@
             string graphicsCard,
             string hdd,
             string screen,
-            string batteryType,
-            string batteryLife,
+            Battery battery,
             decimal price)
             : this(model, price)
         {
@@ -40,9 +38,8 @@
             this.RAM = ram;
             this.GraphicsCard = graphicsCard;
             this.HDD = hdd;
-            this.BatteryType = batteryType;
-            this.BatteryLife = batteryLife;
             this.Screen = screen;
+            this.Battery = battery;
         }
 
         public string Model
@@ -171,34 +168,16 @@
             }
         }
 
-        public string BatteryType
+        public Battery Battery
         {
             get
             {
-                return this.batteryType;
+                return this.battery;
             }
 
             set
             {
-                this.batteryType = value;
-            }
-        }
-
-        public string BatteryLife
-        {
-            get
-            {
-                return this.batteryLife;
-            }
-
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("Input data is invalid");
-                }
-
-                this.batteryLife = value;
+                this.battery = value;
             }
         }
 
@@ -254,6 +233,12 @@
             if (this.Screen != null)
             {
                 laptop.AppendLine("screen: " + this.Screen);
+            }
+
+            if (this.Battery != null)
+            {
+                laptop.AppendLine("battery: " + this.Battery.BatteryType);
+                laptop.AppendLine("battery life: " + this.Battery.BatteryLife);
             }
 
             laptop.AppendLine("price: " + this.Price + " lv");
