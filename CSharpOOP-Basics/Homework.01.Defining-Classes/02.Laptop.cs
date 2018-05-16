@@ -256,11 +256,6 @@
                 laptop.AppendLine("screen: " + this.Screen);
             }
 
-            //if (this.Battery != null)
-            //{
-            //    laptop.Append(this.Battery.ToString());
-            //}
-
             laptop.AppendLine("price: " + this.Price + " lv");
 
             return laptop.ToString();
